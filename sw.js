@@ -1,47 +1,22 @@
 const CACHE_NAME = "solvio-card-v3";
-const CORE_ASSETS = [
-  "/card/",
-  "/card/index.html",
-  "/profile.JPG",
-  "/solvio-logo.png"
-];
 
-self.addEventListener("install", event => {
-  event.waitUntil(
-    caches.open(CACHE_NAME)
-      .then(cache => cache.addAll(CORE_ASSETS))
-      .then(() => self.skipWaiting())
-  );
-});
+const FILES_TO_CACHE = [ "./", "./index.html", "./card/", "./card/index.html", "./profile.JPG", "./solvio-logo.png", "./qr-code.png" ];
 
-self.addEventListener("activate", event => {
-  event.waitUntil(
-    caches.keys().then(keys => Promise.all(
-      keys.filter(key => key !== CACHE_NAME).map(key => caches.delete(key))
-    )).then(() => self.clients.claim())
-  );
-});
+self.addEventListener("install", event => { event.waitUntil( caches.open(CACHE_NAME) .then(cache => cache.addAll(FILES_TO_CACHE)) .then(() => self.skipWaiting()) ); });
 
-self.addEventListener("fetch", event => {
-  const request = event.request;
-  if (request.method !== "GET") return;
+self.addEventListener("activate", event => { event.waitUntil( caches.keys() .then(keys => { return Promise.all( keys .filter(key => key !== CACHE_NAME) .map(key => caches.delete(key)) ); }) .then(() => self.clients.claim()) ); });
 
-  const url = new URL(request.url);
-  if (url.origin !== self.location.origin) return;
+self.addEventListener("fetch", event => { const request = event.request;
 
-  event.respondWith(
-    caches.match(request).then(cached => {
-      if (cached) return cached;
-      return fetch(request).then(response => {
-        if (response && response.ok) {
-          const copy = response.clone();
-          caches.open(CACHE_NAME).then(cache => cache.put(request, copy));
-        }
-        return response;
-      }).catch(() => request.mode === "navigate"
-        ? caches.match("/card/index.html")
-        : Response.error()
-      );
-    })
-  );
-});
+if (request.method !== "GET") { return; }
+
+const url = new URL(request.url);
+
+// Only handle same-origin requests. if (url.origin !== self.location.origin) { return; }
+
+event.respondWith( caches.match(request) .then(cachedResponse => {
+
+if (cachedResponse) { return cachedResponse; } return fetch(request) .then(response => { if (response && response.ok) { const responseClone = response.clone(); caches.open(CACHE_NAME) .then(cache => { cache.put(request, responseClone); }); } return response; }) .catch(() => { // If the user is navigating and the network is unavailable, // return the cached card. if (request.mode === "navigate") { return caches.match("./card/index.html"); } return Response.error(); }); }) 
+
+); });
+

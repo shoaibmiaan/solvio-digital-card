@@ -11,7 +11,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#080e18">
 <meta name="apple-mobile-web-app-capable" content="yes">
-< h cc meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
@@ -586,6 +586,86 @@ a {
   height: 15px;
 }
 /* =========================================================
+   WHATSAPP MODAL
+========================================================= */
+.wa-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 998;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(3,7,13,.92);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+.wa-modal.active {
+  display: flex;
+}
+.wa-box {
+  width: min(100%, 330px);
+  padding: 22px;
+  border-radius: 20px;
+  background: linear-gradient(160deg, var(--card2), var(--card));
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  text-align: center;
+}
+.wa-box h3 {
+  margin: 0 0 5px;
+  font-family: "Playfair Display", serif;
+  font-size: 21px;
+}
+.wa-box p {
+  margin: 0 0 16px;
+  color: var(--muted);
+  font-size: 10.5px;
+  line-height: 1.4;
+}
+.wa-options {
+  display: grid;
+  gap: 9px;
+}
+.wa-option {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  padding: 13px 12px;
+  border-radius: 12px;
+  border: 1px solid var(--gold-border);
+  background: rgba(232,196,104,.06);
+  color: var(--white);
+  font-size: 12px;
+  font-weight: 700;
+}
+.wa-option svg {
+  width: 18px;
+  height: 18px;
+  color: var(--gold);
+}
+.wa-option small {
+  display: block;
+  margin-top: 2px;
+  color: var(--muted);
+  font-size: 9px;
+  font-weight: 500;
+}
+.wa-close {
+  width: 100%;
+  margin-top: 10px;
+  padding: 11px 8px;
+  border-radius: 10px;
+  background: rgba(255,255,255,.04);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-size: 11.5px;
+  font-weight: 700;
+}
+
+/* =========================================================
    QR MODAL
 ========================================================= */
 .qr-modal {
@@ -806,12 +886,12 @@ Mall Road, Lahore, Pakistan
 Save Contact
 </button>
 <div class="actions">
-<a class="action" href="https://wa.me/923457502291" target="_blank" rel="noopener">
+<button class="action" type="button" onclick="openWhatsApp(event)" aria-label="Choose WhatsApp number">
 <svg viewBox="0 0 24 24" fill="currentColor">
 <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.28-1.38a9.87 9.87 0 0 0 4.76 1.21h.01c5.46 0 9.9-4.45 9.9-9.91C21.96 6.45 17.5 2 12.04 2z"/>
 </svg>
 WhatsApp
-</a>
+</button>
 <a class="action" href="mailto:solvioadvisors@gmail.com">
 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
 <path d="M22 6 12 13 2 6"/>
@@ -942,6 +1022,31 @@ Tap to return to profile
 </div>
 </div>
 <!-- ======================================================
+     WHATSAPP MODAL
+====================================================== -->
+<div class="wa-modal" id="waModal" onclick="closeWhatsApp(event)">
+<div class="wa-box" onclick="event.stopPropagation()">
+<h3>Choose WhatsApp</h3>
+<p>Select the WhatsApp number you want to message.</p>
+<div class="wa-options">
+<a class="wa-option" href="https://wa.me/12282253039" target="_blank" rel="noopener">
+<svg viewBox="0 0 24 24" fill="currentColor">
+<path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.28-1.38a9.87 9.87 0 0 0 4.76 1.21h.01c5.46 0 9.9-4.45 9.9-9.91C21.96 6.45 17.5 2 12.04 2z"/>
+</svg>
+<span>+1 228 225 3039<small>US WhatsApp</small></span>
+</a>
+<a class="wa-option" href="https://wa.me/923348955557" target="_blank" rel="noopener">
+<svg viewBox="0 0 24 24" fill="currentColor">
+<path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.28-1.38a9.87 9.87 0 0 0 4.76 1.21h.01c5.46 0 9.9-4.45 9.9-9.91C21.96 6.45 17.5 2 12.04 2z"/>
+</svg>
+<span>+92 334 8955557<small>Pakistan WhatsApp</small></span>
+</a>
+</div>
+<button class="wa-close" type="button" onclick="closeWhatsApp()">Close</button>
+</div>
+</div>
+
+<!-- ======================================================
      QR MODAL
 ====================================================== -->
 <div class="qr-modal" id="qrModal" onclick="closeQR(event)">
@@ -974,7 +1079,7 @@ Close
    This is the permanent short URL used by BOTH
    QR CODE and SHARE.
 ========================================================= */
-const CARD_URL = "https://solvioadvisors.com/card";
+const CARD_URL = "https://shoaibmiaan.github.io/solvio-digital-card/card/";
 /* =========================================================
    FLIP
 ========================================================= */
@@ -1020,6 +1125,22 @@ function saveContact() {
   link.remove();
   setTimeout(() => URL.revokeObjectURL(url), 1000);
 }
+/* =========================================================
+   WHATSAPP NUMBER SELECTOR
+========================================================= */
+function openWhatsApp(e) {
+  if (e) e.stopPropagation();
+  document.getElementById("waModal").classList.add("active");
+  document.body.style.overflow = "hidden";
+}
+
+function closeWhatsApp(e) {
+  const modal = document.getElementById("waModal");
+  if (e && e.target !== modal) return;
+  modal.classList.remove("active");
+  document.body.style.overflow = "";
+}
+
 /* =========================================================
    QR GENERATION
 ========================================================= */
@@ -1138,6 +1259,7 @@ async function shareCard() {
 document.addEventListener("keydown", function(e) {
   if (e.key === "Escape") {
     closeQR();
+    closeWhatsApp();
   }
 });
 /* =========================================================
@@ -1145,7 +1267,7 @@ document.addEventListener("keydown", function(e) {
 ========================================================= */
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", function() {
-    navigator.serviceWorker.register("/sw.js", { scope: "/" }).catch(() => {});
+    navigator.serviceWorker.register("../sw.js", { scope: "../" }).catch(() => {});
   });
 }
 </script>

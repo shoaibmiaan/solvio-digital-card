@@ -1,27 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Muhammad Shoaib Ahmed, ACCA | Solvio Advisors</title>
-<meta name="description" content="Muhammad Shoaib Ahmed, ACCA — Founder of Solvio Advisors. Digital business card.">
+<meta charset="UTF-8"><title>Muhammad Shoaib Ahmed, ACCA | Solvio Advisors</title><meta name="description" content="Muhammad Shoaib Ahmed, ACCA — Founder of Solvio Advisors. Digital business card.">
 <meta name="robots" content="index,follow">
-<link rel="canonical" href="https://solvioadvisors.com/card">
-<meta property="og:type" content="profile">
-<meta property="og:url" content="https://solvioadvisors.com/card">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#080e18">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"><link rel="canonical" href="https://solvioadvisors.com/"><meta property="og:type" content="profile">
+<meta property="og:title" content="Muhammad Shoaib Ahmed, ACCA | Solvio Advisors">
+<meta property="og:description" content="Professional digital business card for Muhammad Shoaib Ahmed, ACCA — Founder of Solvio Advisors.">
+<meta property="og:url" content="https://solvioadvisors.com/">
+<meta property="og:image" content="https://solvioadvisors.com/profile.JPG"><meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Muhammad Shoaib Ahmed, ACCA | Solvio Advisors">
+<meta name="twitter:description" content="Professional digital business card for Muhammad Shoaib Ahmed, ACCA.">
+<meta name="twitter:image" content="https://solvioadvisors.com/profile.JPG"><meta name="theme-color" content="#080e18">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<link rel="preconnect" href="https://fonts.googleapis.com">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
-      rel="stylesheet">
-<!-- QR CODE LIBRARY -->
-<script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.4/build/qrcode.min.js"></script>
-<style>
-/* =========================================================
-   CORE
-========================================================= */
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet"><script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.4/build/qrcode.min.js"></script><style>
 :root {
   --bg: #080e18;
   --card: #101827;
@@ -39,10 +31,12 @@
     0 24px 55px rgba(0,0,0,.55),
     0 5px 20px rgba(0,0,0,.25);
 }
+
 * {
   box-sizing: border-box;
   -webkit-tap-highlight-color: transparent;
 }
+
 html,
 body {
   width: 100%;
@@ -50,6 +44,7 @@ body {
   margin: 0;
   overflow: hidden;
 }
+
 body {
   font-family:
     "DM Sans",
@@ -73,21 +68,22 @@ body {
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
+
 button,
 a {
   font: inherit;
 }
+
 button {
   border: 0;
   cursor: pointer;
 }
+
 a {
   color: inherit;
   text-decoration: none;
 }
-/* =========================================================
-   VIEWPORT
-========================================================= */
+
 .viewport {
   width: 100%;
   height: 100dvh;
@@ -100,32 +96,25 @@ a {
     max(12px, env(safe-area-inset-bottom))
     max(12px, env(safe-area-inset-left));
 }
-/* =========================================================
-   CARD
-========================================================= */
+
 .flipcard {
   width: min(100%, 390px);
-  height:
-    min(
-      680px,
-      calc(100dvh - 24px)
-    );
+  height: min(680px, calc(100dvh - 24px));
   perspective: 1600px;
 }
+
 .flip-inner {
   position: relative;
   width: 100%;
   height: 100%;
   transform-style: preserve-3d;
-  transition:
-    transform .65s cubic-bezier(.22,.8,.25,1);
+  transition: transform .65s cubic-bezier(.22,.8,.25,1);
 }
+
 .flip-inner.flipped {
   transform: rotateY(180deg);
 }
-/* =========================================================
-   CARD FACES
-========================================================= */
+
 .face {
   position: absolute;
   inset: 0;
@@ -155,6 +144,7 @@ a {
   -webkit-backface-visibility: hidden;
   cursor: pointer;
 }
+
 .face::before {
   content: "";
   position: absolute;
@@ -171,18 +161,18 @@ a {
     );
   opacity: .75;
 }
+
 .face-back {
   transform: rotateY(180deg);
   overflow-y: auto;
   scrollbar-width: none;
   -webkit-overflow-scrolling: touch;
 }
+
 .face-back::-webkit-scrollbar {
   display: none;
 }
-/* =========================================================
-   TOP LABEL
-========================================================= */
+
 .brand {
   text-align: center;
   font-size: 9px;
@@ -193,29 +183,29 @@ a {
   margin-bottom: 10px;
   flex-shrink: 0;
 }
-/* =========================================================
-   PROFILE IMAGE
-========================================================= */
+
 .profile-wrap {
   display: flex;
   justify-content: center;
   margin-bottom: 10px;
   flex-shrink: 0;
 }
+
 .profile {
   position: relative;
   width: clamp(78px, 17vw, 94px);
   height: clamp(78px, 17vw, 94px);
 }
+
 .profile-ring {
   position: absolute;
   inset: 0;
   border-radius: 50%;
   border: 1.5px solid var(--gold);
   opacity: .55;
-  box-shadow:
-    0 0 20px rgba(232,196,104,.14);
+  box-shadow: 0 0 20px rgba(232,196,104,.14);
 }
+
 .profile-ring::after {
   content: "";
   position: absolute;
@@ -223,6 +213,7 @@ a {
   border-radius: 50%;
   border: 1px solid rgba(232,196,104,.28);
 }
+
 .profile img {
   position: absolute;
   inset: 9px;
@@ -231,27 +222,25 @@ a {
   object-fit: cover;
   border-radius: 50%;
   background: var(--card2);
-  box-shadow:
-    0 5px 15px rgba(0,0,0,.35);
+  box-shadow: 0 5px 15px rgba(0,0,0,.35);
 }
-/* =========================================================
-   IDENTITY
-========================================================= */
+
 .identity {
   text-align: center;
   flex-shrink: 0;
 }
+
 .name {
   margin: 0 0 7px;
   font-family: "Playfair Display", serif;
-  font-size:
-    clamp(21px, 6.3vw, 29px);
+  font-size: clamp(21px, 6.3vw, 29px);
   line-height: 1.08;
   font-weight: 600;
   letter-spacing: -.02em;
   color: #fff;
   white-space: nowrap;
 }
+
 .credential {
   display: inline-block;
   padding: 4px 11px;
@@ -268,12 +257,14 @@ a {
   font-weight: 800;
   margin-bottom: 7px;
 }
+
 .title {
   margin: 0 0 3px;
   font-size: 12.5px;
   color: var(--text);
   font-weight: 500;
 }
+
 .company {
   margin: 0;
   color: var(--gold);
@@ -282,9 +273,7 @@ a {
   letter-spacing: 1.7px;
   text-transform: uppercase;
 }
-/* =========================================================
-   QUALIFICATIONS
-========================================================= */
+
 .credentials {
   margin-top: 11px;
   text-align: center;
@@ -293,20 +282,17 @@ a {
   color: var(--muted);
   flex-shrink: 0;
 }
+
 .credentials strong {
   color: var(--text);
   font-weight: 500;
 }
-/* =========================================================
-   FLEX SPACE
-========================================================= */
+
 .spacer {
   flex: 1;
   min-height: 8px;
 }
-/* =========================================================
-   ADDRESS
-========================================================= */
+
 .address {
   padding: 10px 12px;
   margin-bottom: 10px;
@@ -316,6 +302,7 @@ a {
   border: 1px solid rgba(255,255,255,.045);
   flex-shrink: 0;
 }
+
 .address-title {
   margin-bottom: 4px;
   color: var(--gold);
@@ -324,14 +311,13 @@ a {
   letter-spacing: 2px;
   text-transform: uppercase;
 }
+
 .address-text {
   color: var(--text);
   font-size: 10.5px;
   line-height: 1.4;
 }
-/* =========================================================
-   SAVE CONTACT
-========================================================= */
+
 .save {
   width: 100%;
   display: flex;
@@ -351,20 +337,19 @@ a {
   color: #171207;
   font-size: 13px;
   font-weight: 800;
-  box-shadow:
-    0 8px 22px rgba(201,164,58,.25);
+  box-shadow: 0 8px 22px rgba(201,164,58,.25);
   flex-shrink: 0;
 }
+
 .save:active {
   transform: scale(.98);
 }
+
 .save svg {
   width: 17px;
   height: 17px;
 }
-/* =========================================================
-   QUICK ACTIONS
-========================================================= */
+
 .actions {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -372,6 +357,7 @@ a {
   margin-bottom: 9px;
   flex-shrink: 0;
 }
+
 .action {
   min-height: 58px;
   display: flex;
@@ -385,17 +371,17 @@ a {
   color: var(--text);
   font-size: 10.5px;
 }
+
 .action svg {
   width: 18px;
   height: 18px;
   color: var(--gold);
 }
+
 .action:active {
   background: rgba(232,196,104,.08);
 }
-/* =========================================================
-   FLIP BUTTON
-========================================================= */
+
 .flip-hint {
   width: 100%;
   display: flex;
@@ -411,24 +397,25 @@ a {
   font-weight: 600;
   flex-shrink: 0;
 }
+
 .flip-hint svg {
   width: 13px;
   height: 13px;
 }
-/* =========================================================
-   BACK HEADER
-========================================================= */
+
 .back-header {
   text-align: center;
   margin-bottom: 10px;
   flex-shrink: 0;
 }
+
 .logo {
   width: 58px;
   height: 58px;
   object-fit: contain;
   margin-bottom: 5px;
 }
+
 .solvio {
   margin: 0;
   font-family: "Playfair Display", serif;
@@ -437,6 +424,7 @@ a {
   letter-spacing: 1.2px;
   color: #fff;
 }
+
 .tagline {
   margin: 3px 0 0;
   font-family: "Playfair Display", serif;
@@ -444,13 +432,12 @@ a {
   font-style: italic;
   color: var(--gold);
 }
-/* =========================================================
-   SECTIONS
-========================================================= */
+
 .section {
   margin-bottom: 10px;
   flex-shrink: 0;
 }
+
 .section-title {
   margin-bottom: 6px;
   font-size: 8.5px;
@@ -459,49 +446,47 @@ a {
   color: var(--gold);
   text-transform: uppercase;
 }
-/* =========================================================
-   ABOUT
-========================================================= */
+
 .about {
   padding-bottom: 9px;
   border-bottom: 1px solid var(--border);
   text-align: center;
 }
+
 .about p {
   margin: 0;
   font-size: 10px;
   line-height: 1.4;
   color: var(--text);
 }
-/* =========================================================
-   VALUE PROPOSITION
-========================================================= */
+
 .value-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 6px;
 }
+
 .value {
   padding: 8px 9px;
   border-radius: 10px;
   border: 1px solid var(--border);
   background: rgba(255,255,255,.035);
 }
+
 .value strong {
   display: block;
   margin-bottom: 3px;
   font-size: 9.5px;
   color: #fff;
 }
+
 .value span {
   display: block;
   font-size: 8.5px;
   line-height: 1.25;
   color: var(--muted);
 }
-/* =========================================================
-   USA BADGE
-========================================================= */
+
 .usa {
   display: flex;
   align-items: center;
@@ -516,20 +501,21 @@ a {
   font-weight: 600;
   margin-bottom: 10px;
 }
+
 .usa span:first-child {
   font-size: 13px;
 }
-/* =========================================================
-   CONTACT / SOCIAL
-========================================================= */
+
 .connect {
   text-align: center;
 }
+
 .social {
   display: flex;
   justify-content: center;
   gap: 9px;
 }
+
 .social a {
   width: 31px;
   height: 31px;
@@ -541,13 +527,12 @@ a {
   background: rgba(255,255,255,.035);
   color: var(--gold);
 }
+
 .social svg {
   width: 14px;
   height: 14px;
 }
-/* =========================================================
-   CONSULTATION
-========================================================= */
+
 .consult {
   width: 100%;
   display: flex;
@@ -563,9 +548,7 @@ a {
   font-weight: 700;
   flex-shrink: 0;
 }
-/* =========================================================
-   QR BUTTON
-========================================================= */
+
 .qr-button {
   position: absolute;
   top: 14px;
@@ -581,14 +564,14 @@ a {
   color: var(--gold);
   z-index: 5;
 }
+
 .qr-button svg {
   width: 15px;
   height: 15px;
 }
-/* =========================================================
-   WHATSAPP MODAL
-========================================================= */
-.wa-modal {
+
+.wa-modal,
+.qr-modal {
   position: fixed;
   inset: 0;
   z-index: 998;
@@ -600,10 +583,22 @@ a {
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
 }
-.wa-modal.active {
+
+.qr-modal {
+  z-index: 999;
+  padding:
+    max(20px, env(safe-area-inset-top))
+    20px
+    max(20px, env(safe-area-inset-bottom));
+}
+
+.wa-modal.active,
+.qr-modal.active {
   display: flex;
 }
-.wa-box {
+
+.wa-box,
+.qr-box {
   width: min(100%, 330px);
   padding: 22px;
   border-radius: 20px;
@@ -612,21 +607,39 @@ a {
   box-shadow: var(--shadow);
   text-align: center;
 }
-.wa-box h3 {
+
+.qr-box {
+  width: min(100%, 310px);
+}
+
+.wa-box h3,
+.qr-box h3 {
   margin: 0 0 5px;
   font-family: "Playfair Display", serif;
   font-size: 21px;
 }
-.wa-box p {
+
+.qr-box h3 {
+  font-size: 20px;
+}
+
+.wa-box p,
+.qr-box p {
   margin: 0 0 16px;
   color: var(--muted);
   font-size: 10.5px;
   line-height: 1.4;
 }
+
+.qr-box p {
+  margin-bottom: 14px;
+}
+
 .wa-options {
   display: grid;
   gap: 9px;
 }
+
 .wa-option {
   width: 100%;
   display: flex;
@@ -641,11 +654,13 @@ a {
   font-size: 12px;
   font-weight: 700;
 }
+
 .wa-option svg {
   width: 18px;
   height: 18px;
   color: var(--gold);
 }
+
 .wa-option small {
   display: block;
   margin-top: 2px;
@@ -653,6 +668,7 @@ a {
   font-size: 9px;
   font-weight: 500;
 }
+
 .wa-close {
   width: 100%;
   margin-top: 10px;
@@ -665,52 +681,6 @@ a {
   font-weight: 700;
 }
 
-/* =========================================================
-   QR MODAL
-========================================================= */
-.qr-modal {
-  position: fixed;
-  inset: 0;
-  z-index: 999;
-  display: none;
-  align-items: center;
-  justify-content: center;
-  padding:
-    max(20px, env(safe-area-inset-top))
-    20px
-    max(20px, env(safe-area-inset-bottom));
-  background: rgba(3,7,13,.92);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-}
-.qr-modal.active {
-  display: flex;
-}
-.qr-box {
-  width: min(100%, 310px);
-  padding: 22px;
-  border-radius: 20px;
-  background:
-    linear-gradient(
-      160deg,
-      var(--card2),
-      var(--card)
-    );
-  border: 1px solid var(--border);
-  box-shadow: var(--shadow);
-  text-align: center;
-}
-.qr-box h3 {
-  margin: 0 0 4px;
-  font-family: "Playfair Display", serif;
-  font-size: 20px;
-}
-.qr-box p {
-  margin: 0 0 14px;
-  color: var(--muted);
-  font-size: 10.5px;
-  line-height: 1.4;
-}
 .qr-wrap {
   width: 190px;
   height: 190px;
@@ -719,10 +689,12 @@ a {
   border-radius: 13px;
   background: #fff;
 }
+
 #qrCanvas {
   width: 100%;
   height: 100%;
 }
+
 .short-link {
   display: block;
   margin-bottom: 13px;
@@ -733,173 +705,172 @@ a {
   font-size: 10px;
   word-break: break-all;
 }
+
 .qr-actions {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 8px;
 }
+
 .qr-actions button {
   padding: 11px 8px;
   border-radius: 10px;
   font-size: 11.5px;
   font-weight: 700;
 }
+
 .share {
-  background:
-    linear-gradient(
-      135deg,
-      var(--gold-light),
-      var(--gold-dark)
-    );
+  background: linear-gradient(
+    135deg,
+    var(--gold-light),
+    var(--gold-dark)
+  );
   color: #171207;
 }
+
 .close {
   background: rgba(255,255,255,.04);
   border: 1px solid var(--border);
   color: var(--text);
 }
-/* =========================================================
-   SMALL PHONES
-========================================================= */
+
 @media (max-height: 680px) {
   .face {
-    padding:
-      13px 16px;
+    padding: 13px 16px;
   }
+
   .profile-wrap {
     margin-bottom: 6px;
   }
+
   .profile {
     width: 70px;
     height: 70px;
   }
+
   .profile img {
     inset: 7px;
     width: calc(100% - 14px);
     height: calc(100% - 14px);
   }
+
   .name {
     font-size: 20px;
     margin-bottom: 5px;
   }
+
   .credentials {
     margin-top: 7px;
   }
+
   .address {
     padding: 7px 9px;
     margin-bottom: 7px;
   }
+
   .save {
     padding: 10px;
     margin-bottom: 6px;
   }
+
   .action {
     min-height: 48px;
   }
+
   .flip-hint {
     padding: 6px;
   }
+
   .back-header {
     margin-bottom: 6px;
   }
+
   .logo {
     width: 45px;
     height: 45px;
   }
+
   .solvio {
     font-size: 18px;
   }
+
   .section {
     margin-bottom: 7px;
   }
+
   .value {
     padding: 6px 7px;
   }
+
   .usa {
     margin-bottom: 7px;
     padding: 5px 8px;
   }
 }
-/* =========================================================
-   TABLETS / DESKTOP
-========================================================= */
+
 @media (min-width: 700px) {
   .flipcard {
     width: 390px;
     height: 680px;
   }
 }
-</style>
-</head>
-<body>
-<div class="viewport">
+</style></head><body><div class="viewport">
 <div class="flipcard">
-<div class="flip-inner" id="flipInner">
-<!-- ======================================================
-     FRONT
-====================================================== -->
-<div class="face face-front">
-<div class="brand">
+<div class="flip-inner" id="flipInner"><div class="face face-front"><div class="brand">
 Professional Profile
-</div>
-<div class="profile-wrap">
+</div><div class="profile-wrap">
 <div class="profile">
 <div class="profile-ring"></div>
-<img src="../profile.JPG" alt="Muhammad Shoaib Ahmed" onerror="this.style.display='none';">
+<img src="profile.JPG"
+     alt="Muhammad Shoaib Ahmed"
+     onerror="this.style.display='none';">
 </div>
-</div>
-<div class="identity">
+</div><div class="identity">
 <h1 class="name">
 Muhammad Shoaib Ahmed
-</h1>
-<div class="credential">
+</h1><div class="credential">
 ACCA MEMBER
-</div>
-<p class="title">
+</div><p class="title">
 Founder, Solvio Advisors
-</p>
-<p class="company">
+</p><p class="company">
 Advocate &middot; Tax &amp; Financial Consultant
 </p>
-</div>
-<div class="credentials">
+</div><div class="credentials">
 BSc (Hons) Applied Accounting &middot; Oxford Brookes University<br>
 CFA Level II Candidate &middot; Member, Tax Bar Association
-</div>
-<div class="spacer"></div>
-<!-- ADDRESS AT END -->
-<div class="address">
+</div><div class="spacer"></div><div class="address">
 <div class="address-title">
 Office
-</div>
-<div class="address-text">
+</div><div class="address-text">
 13-Fane Road, Behind State Bank of Pakistan,<br>
 Mall Road, Lahore, Pakistan
 </div>
-</div>
-<button class="save" type="button" onclick="saveContact()">
+</div><button class="save" type="button" onclick="saveContact()">
 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
 <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
 <circle cx="12" cy="7" r="4"/>
 <path d="M19 8v6M22 11h-6"/>
 </svg>
 Save Contact
-</button>
-<div class="actions">
-<button class="action" type="button" onclick="openWhatsApp(event)" aria-label="Choose WhatsApp number">
+</button><div class="actions"><button class="action"
+type="button"
+onclick="openWhatsApp(event)"
+aria-label="Choose WhatsApp number">
+
 <svg viewBox="0 0 24 24" fill="currentColor">
 <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.28-1.38a9.87 9.87 0 0 0 4.76 1.21h.01c5.46 0 9.9-4.45 9.9-9.91C21.96 6.45 17.5 2 12.04 2z"/>
-</svg>
-WhatsApp
+</svg>WhatsApp
 </button>
-<a class="action" href="mailto:solvioadvisors@gmail.com">
+
+<a class="action"
+href="mailto:solvioadvisors@gmail.com">
+
 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
 <path d="M22 6 12 13 2 6"/>
-</svg>
-Email
+</svg>Email
 </a>
-</div>
-<div class="flip-hint">
+
+</div><div class="flip-hint">
 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 <path d="M17 2l4 4-4 4"/>
 <path d="M3 12V11a4 4 0 0 1 4-4h14"/>
@@ -907,199 +878,201 @@ Email
 <path d="M21 12v1a4 4 0 0 1-4 4H3"/>
 </svg>
 Tap to view Solvio Advisors
-</div>
-</div>
-<!-- ======================================================
-     BACK
-====================================================== -->
-<div class="face face-back">
-<button class="qr-button" type="button" onclick="openQR(event)" aria-label="Show QR code">
+</div></div><div class="face face-back"><button class="qr-button"
+type="button"
+onclick="openQR(event)"
+aria-label="Show QR code">
+
 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
 <rect x="3" y="3" width="7" height="7"/>
 <rect x="14" y="3" width="7" height="7"/>
 <rect x="3" y="14" width="7" height="7"/>
 <path d="M14 14h3v3M21 14v1M14 21v1M18 18h3v3"/>
-</svg>
-</button>
-<div class="brand">
+</svg></button><div class="brand">
 Solvio Advisors
-</div>
-<div class="back-header">
-<img class="logo" src="../solvio-logo.png" alt="Solvio Advisors Logo">
+</div><div class="back-header"><img class="logo"
+src="solvio-logo.png"
+alt="Solvio Advisors Logo">
+
 <h2 class="solvio">
 SOLVIO ADVISORS
-</h2>
-<p class="tagline">
+</h2><p class="tagline">
 Clear Numbers. Better Decisions.
-</p>
-</div>
-<div class="section about">
-<div class="section-title">
+</p></div><div class="section about"><div class="section-title">
 About
-</div>
-<p>
+</div><p>
 Remote accounting and advisory support for US small businesses,
 startups and growing companies &mdash; helping owners stay financially
 clear, organized and compliant.
-</p>
-</div>
-<div class="usa">
+</p></div><div class="usa">
 <span>&#127482;&#127480;</span>
 <span>
 Accounting &amp; Advisory for US Businesses
 </span>
-</div>
-<!-- ======================================================
-     ATTRACTIVE VALUE SECTION
-====================================================== -->
-<div class="section">
-<div class="section-title">
+</div><div class="section"><div class="section-title">
 How I Can Help
-</div>
-<div class="value-grid">
-<div class="value">
+</div><div class="value-grid"><div class="value">
 <strong>Get Your Books Clean</strong>
 <span>Catch-up, cleanup and reconciliation of messy books.</span>
-</div>
-<div class="value">
+</div><div class="value">
 <strong>Know Your Numbers</strong>
 <span>Clear financial reports for better business decisions.</span>
-</div>
-<div class="value">
+</div><div class="value">
 <strong>Stay Tax Ready</strong>
 <span>Organized records and practical compliance support.</span>
-</div>
-<div class="value">
+</div><div class="value">
 <strong>Grow With Confidence</strong>
 <span>Accounting systems and advisory built for growing businesses.</span>
-</div>
-</div>
-</div>
-<div class="spacer"></div>
-<div class="section connect">
-<div class="section-title">
+</div></div>
+</div><div class="spacer"></div><div class="section connect"><div class="section-title">
 Connect
-</div>
-<div class="social">
-<a href="https://solvioadvisors.com" target="_blank" rel="noopener" aria-label="Website">
+</div><div class="social"><a href="https://solvioadvisors.com/"
+target="_blank"
+rel="noopener"
+aria-label="Website">
+
 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
 <circle cx="12" cy="12" r="10"/>
 <path d="M2 12h20"/>
 <path d="M12 2a15 15 0 0 1 0 20"/>
-</svg>
-</a>
-<a href="https://www.linkedin.com/in/shuaib-ahmed-acca-4b3999151" target="_blank" rel="noopener" aria-label="LinkedIn">
+</svg></a><a href="https://www.linkedin.com/in/shuaib-ahmed-acca-4b3999151"
+target="_blank"
+rel="noopener"
+aria-label="LinkedIn">
+
 <svg viewBox="0 0 24 24" fill="currentColor">
 <path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.22 8.24H4.8V23H.22V8.24zM8.4 8.24h4.38v2.02h.06c.61-1.15 2.1-2.36 4.32-2.36 4.62 0 5.47 3.04 5.47 6.98V23h-4.57v-6.9c0-1.65-.03-3.77-2.3-3.77-2.3 0-2.66 1.8-2.66 3.65V23H8.4V8.24z"/>
-</svg>
-</a>
-<a href="https://www.instagram.com/solvioadvisors" target="_blank" rel="noopener" aria-label="Instagram">
+</svg></a><a href="https://www.instagram.com/solvioadvisors"
+target="_blank"
+rel="noopener"
+aria-label="Instagram">
+
 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
 <rect x="2" y="2" width="20" height="20" rx="5"/>
 <circle cx="12" cy="12" r="4"/>
 <circle cx="17.5" cy="6.5" r="1"/>
-</svg>
-</a>
-<a href="https://www.facebook.com/share/1HvuHDr3cx/" target="_blank" rel="noopener" aria-label="Facebook">
+</svg></a><a href="https://www.facebook.com/share/1HvuHDr3cx/"
+target="_blank"
+rel="noopener"
+aria-label="Facebook">
+
 <svg viewBox="0 0 24 24" fill="currentColor">
 <path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.78-3.89 1.1 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0 0 22 12z"/>
-</svg>
-</a>
-</div>
-</div>
-<a class="consult" href="https://wa.me/923457502291?text=Hi%20Shoaib%2C%20I%27d%20like%20to%20book%20a%20free%20consultation%20with%20Solvio%20Advisors." target="_blank" rel="noopener">
+</svg></a></div>
+</div><a class="consult"
+href="https://wa.me/923457502291?text=Hi%20Shoaib%2C%20I%27d%20like%20to%20book%20a%20free%20consultation%20with%20Solvio%20Advisors."
+target="_blank"
+rel="noopener">
+
 Book a Free Consultation
-</a>
-<div class="flip-hint" onclick="flipBack(event)">
-<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+
+</a><div class="flip-hint"
+     onclick="flipBack(event)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
 <path d="M7 2l-4 4 4 4"/>
 <path d="M21 12v-1a4 4 0 0 0-4-4H3"/>
-</svg>
-Tap to return to profile
-</div>
-</div>
-</div>
-</div>
-</div>
-<!-- ======================================================
-     WHATSAPP MODAL
-====================================================== -->
-<div class="wa-modal" id="waModal" onclick="closeWhatsApp(event)">
-<div class="wa-box" onclick="event.stopPropagation()">
-<h3>Choose WhatsApp</h3>
-<p>Select the WhatsApp number you want to message.</p>
-<div class="wa-options">
-<a class="wa-option" href="https://wa.me/12282253039" target="_blank" rel="noopener">
-<svg viewBox="0 0 24 24" fill="currentColor">
-<path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.28-1.38a9.87 9.87 0 0 0 4.76 1.21h.01c5.46 0 9.9-4.45 9.9-9.91C21.96 6.45 17.5 2 12.04 2z"/>
-</svg>
-<span>+1 228 225 3039<small>US WhatsApp</small></span>
-</a>
-<a class="wa-option" href="https://wa.me/923348955557" target="_blank" rel="noopener">
-<svg viewBox="0 0 24 24" fill="currentColor">
-<path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.28-1.38a9.87 9.87 0 0 0 4.76 1.21h.01c5.46 0 9.9-4.45 9.9-9.91C21.96 6.45 17.5 2 12.04 2z"/>
-</svg>
-<span>+92 334 8955557<small>Pakistan WhatsApp</small></span>
-</a>
-</div>
-<button class="wa-close" type="button" onclick="closeWhatsApp()">Close</button>
-</div>
-</div>
+</svg>Tap to return to profile
 
-<!-- ======================================================
-     QR MODAL
-====================================================== -->
-<div class="qr-modal" id="qrModal" onclick="closeQR(event)">
-<div class="qr-box" onclick="event.stopPropagation()">
-<h3>
-Scan or Share
-</h3>
-<p>
-Scan the QR code or use the simple link below.
-</p>
-<div class="qr-wrap">
-<canvas id="qrCanvas" width="180" height="180"></canvas>
+</div></div>
 </div>
-<a class="short-link" href="https://solvioadvisors.com/card" target="_blank">
-https://solvioadvisors.com/card
-</a>
-<div class="qr-actions">
-<button class="share" type="button" onclick="shareCard()">
-Share
-</button>
-<button class="close" type="button" onclick="closeQR()">
+</div>
+</div><div class="wa-modal"
+     id="waModal"
+     onclick="closeWhatsApp(event)"><div class="wa-box"
+     onclick="event.stopPropagation()"><h3>Choose WhatsApp</h3><p>
+Select the WhatsApp number you want to message.
+</p><div class="wa-options"><a class="wa-option"
+href="https://wa.me/12282253039"
+target="_blank"
+rel="noopener">
+
+<svg viewBox="0 0 24 24" fill="currentColor">
+<path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.28-1.38a9.87 9.87 0 0 0 4.76 1.21h.01c5.46 0 9.9-4.45 9.9-9.91C21.96 6.45 17.5 2 12.04 2z"/>
+</svg><span>
++1 228 225 3039
+<small>US WhatsApp</small>
+</span></a><a class="wa-option"
+href="https://wa.me/923348955557"
+target="_blank"
+rel="noopener">
+
+<svg viewBox="0 0 24 24" fill="currentColor">
+<path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.28-1.38a9.87 9.87 0 0 0 4.76-9.91C21.96 6.45 17.5 2 12.04 2z"/>
+</svg><span>
++92 334 8955557
+<small>Pakistan WhatsApp</small>
+</span></a></div><button class="wa-close"
+type="button"
+onclick="closeWhatsApp()">
+
 Close
-</button>
+
+</button></div>
+</div><div class="qr-modal"
+     id="qrModal"
+     onclick="closeQR(event)"><div class="qr-box"
+     onclick="event.stopPropagation()"><h3>
+Scan or Share
+</h3><p>
+Scan the QR code or use the simple link below.
+</p><div class="qr-wrap">
+<canvas id="qrCanvas"
+        width="180"
+        height="180">
+</canvas>
+</div><a class="short-link"
+href="https://solvioadvisors.com/"
+target="_blank">
+
+https://solvioadvisors.com/
+
+</a><div class="qr-actions"><button class="share"
+type="button"
+onclick="shareCard()">
+
+Share
+
+</button><button class="close"
+type="button"
+onclick="closeQR()">
+
+Close
+
+</button></div>
 </div>
-</div>
-</div>
-<script>
-/* =========================================================
-   IMPORTANT:
-   This is the permanent short URL used by BOTH
-   QR CODE and SHARE.
-========================================================= */
-const CARD_URL = "https://shoaibmiaan.github.io/solvio-digital-card/card/";
-/* =========================================================
-   FLIP
-========================================================= */
+</div><script>
+
+const CARD_URL = "https://solvioadvisors.com/";
+
 const inner = document.getElementById("flipInner");
+
 document.querySelectorAll(".face").forEach(face => {
+
   face.addEventListener("click", function(e) {
-    if (e.target.closest("a") || e.target.closest("button") || e.target.closest(".flip-hint")) {
+
+    if (
+      e.target.closest("a") ||
+      e.target.closest("button") ||
+      e.target.closest(".flip-hint")
+    ) {
       return;
     }
+
     inner.classList.toggle("flipped");
+
   });
+
 });
+
 function flipBack(e) {
+
   if (e) e.stopPropagation();
+
   inner.classList.remove("flipped");
+
 }
-/* =========================================================
-   SAVE CONTACT
-========================================================= */
+
 function saveContact() {
+
   const vcard = [
     "BEGIN:VCARD",
     "VERSION:3.0",
@@ -1110,166 +1083,320 @@ function saveContact() {
     "TEL;TYPE=CELL,VOICE:+923457502291",
     "TEL;TYPE=WORK,VOICE:+12282253039",
     "EMAIL;TYPE=WORK:solvioadvisors@gmail.com",
-    "URL:https://solvioadvisors.com",
+    "URL:https://solvioadvisors.com/",
     "ADR;TYPE=WORK:;;13-Fane Road, Behind State Bank of Pakistan, Mall Road;Lahore;;;Pakistan",
     "NOTE:Founder of Solvio Advisors. ACCA Member. BSc (Hons) Applied Accounting - Oxford Brookes University. CFA Level II Candidate. Advocate. Member, Tax Bar Association.",
     "END:VCARD"
   ].join("\r\n");
-  const blob = new Blob([vcard], {type:"text/vcard;charset=utf-8"});
+
+  const blob = new Blob(
+    [vcard],
+    {type:"text/vcard;charset=utf-8"}
+  );
+
   const url = URL.createObjectURL(blob);
+
   const link = document.createElement("a");
+
   link.href = url;
   link.download = "Muhammad-Shoaib-Ahmed.vcf";
+
   document.body.appendChild(link);
+
   link.click();
+
   link.remove();
-  setTimeout(() => URL.revokeObjectURL(url), 1000);
+
+  setTimeout(
+    () => URL.revokeObjectURL(url),
+    1000
+  );
 }
-/* =========================================================
-   WHATSAPP NUMBER SELECTOR
-========================================================= */
+
 function openWhatsApp(e) {
+
   if (e) e.stopPropagation();
-  document.getElementById("waModal").classList.add("active");
+
+  document
+    .getElementById("waModal")
+    .classList.add("active");
+
   document.body.style.overflow = "hidden";
 }
 
 function closeWhatsApp(e) {
-  const modal = document.getElementById("waModal");
-  if (e && e.target !== modal) return;
+
+  const modal =
+    document.getElementById("waModal");
+
+  if (e && e.target !== modal) {
+    return;
+  }
+
   modal.classList.remove("active");
+
   document.body.style.overflow = "";
 }
 
-/* =========================================================
-   QR GENERATION
-========================================================= */
 function generateQR() {
-  const canvas = document.getElementById("qrCanvas");
-  const ctx = canvas.getContext("2d");
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-  if (typeof QRCode !== "undefined" && QRCode.toCanvas) {
-    QRCode.toCanvas(canvas, CARD_URL, {
-      width: 180,
-      margin: 2,
-      color: { dark: "#0f1726", light: "#ffffff" },
-      errorCorrectionLevel: "M"
-    }, function(error) {
-      if (error) drawQRUnavailable(ctx);
-    });
+  const canvas =
+    document.getElementById("qrCanvas");
+
+  const ctx =
+    canvas.getContext("2d");
+
+  ctx.clearRect(
+    0,
+    0,
+    canvas.width,
+    canvas.height
+  );
+
+  if (
+    typeof QRCode !== "undefined" &&
+    QRCode.toCanvas
+  ) {
+
+    QRCode.toCanvas(
+      canvas,
+      CARD_URL,
+      {
+        width: 180,
+        margin: 2,
+        color: {
+          dark: "#0f1726",
+          light: "#ffffff"
+        },
+        errorCorrectionLevel: "M"
+      },
+      function(error) {
+
+        if (error) {
+          drawQRUnavailable(ctx);
+        }
+
+      }
+    );
+
     return;
   }
 
   drawQRUnavailable(ctx);
 }
-/* =========================================================
-   QR UNAVAILABLE MESSAGE
-========================================================= */
+
 function drawQRUnavailable(ctx) {
+
   const size = 180;
+
   ctx.fillStyle = "#ffffff";
   ctx.fillRect(0, 0, size, size);
+
   ctx.fillStyle = "#0f1726";
+
   ctx.font = "bold 14px Arial";
   ctx.textAlign = "center";
-  ctx.fillText("QR temporarily", size / 2, 78);
-  ctx.fillText("unavailable", size / 2, 98);
+
+  ctx.fillText(
+    "QR temporarily",
+    size / 2,
+    78
+  );
+
+  ctx.fillText(
+    "unavailable",
+    size / 2,
+    98
+  );
+
   ctx.font = "11px Arial";
   ctx.fillStyle = "#555";
-  ctx.fillText("Use the link below", size / 2, 122);
+
+  ctx.fillText(
+    "Use the link below",
+    size / 2,
+    122
+  );
 }
-/* =========================================================
-   OPEN QR
-========================================================= */
+
 function openQR(e) {
+
   if (e) {
     e.stopPropagation();
   }
-  document.getElementById("qrModal").classList.add("active");
+
+  document
+    .getElementById("qrModal")
+    .classList.add("active");
+
   document.body.style.overflow = "hidden";
+
   generateQR();
 }
-/* =========================================================
-   CLOSE QR
-========================================================= */
+
 function closeQR(e) {
-  if (e && e.target !== document.getElementById("qrModal")) {
+
+  const modal =
+    document.getElementById("qrModal");
+
+  if (e && e.target !== modal) {
     return;
   }
-  document.getElementById("qrModal").classList.remove("active");
+
+  modal.classList.remove("active");
+
   document.body.style.overflow = "";
 }
-/* =========================================================
-   SHARE
-========================================================= */
+
 async function shareCard() {
-  const canvas = document.getElementById("qrCanvas");
-  const shareText = `Muhammad Shoaib Ahmed, ACCA\nFounder, Solvio Advisors\nClear Numbers. Better Decisions.\nOpen my digital card:\n${CARD_URL}`;
-  /* Try to share QR image + link */
-  if (navigator.share && navigator.canShare) {
+
+  const canvas =
+    document.getElementById("qrCanvas");
+
+  const shareText =
+`Muhammad Shoaib Ahmed, ACCA
+Founder, Solvio Advisors
+Clear Numbers. Better Decisions.
+Open my digital card:
+${CARD_URL}`;
+
+  if (
+    navigator.share &&
+    navigator.canShare
+  ) {
+
     try {
-      const blob = await new Promise(resolve => canvas.toBlob(resolve, "image/png"));
-      const file = new File([blob], "Solvio-Advisors-Card-QR.png", { type: "image/png" });
+
+      const blob =
+        await new Promise(
+          resolve =>
+            canvas.toBlob(
+              resolve,
+              "image/png"
+            )
+        );
+
+      const file =
+        new File(
+          [blob],
+          "Solvio-Advisors-Card-QR.png",
+          { type: "image/png" }
+        );
+
       const shareData = {
-        title: "Muhammad Shoaib Ahmed | Solvio Advisors",
+        title:
+          "Muhammad Shoaib Ahmed | Solvio Advisors",
         text: shareText,
         url: CARD_URL,
         files: [file]
       };
-      if (navigator.canShare({ files: [file] })) {
-        await navigator.share(shareData);
+
+      if (
+        navigator.canShare({
+          files: [file]
+        })
+      ) {
+
+        await navigator.share(
+          shareData
+        );
+
         return;
       }
-    }
-    catch (error) {
-      if (error && error.name === "AbortError") {
+
+    } catch (error) {
+
+      if (
+        error &&
+        error.name === "AbortError"
+      ) {
         return;
       }
+
     }
+
   }
-  /* Normal share fallback */
+
   if (navigator.share) {
+
     try {
+
       await navigator.share({
-        title: "Muhammad Shoaib Ahmed | Solvio Advisors",
+        title:
+          "Muhammad Shoaib Ahmed | Solvio Advisors",
         text: shareText,
         url: CARD_URL
       });
+
       return;
-    }
-    catch (error) {
-      if (error && error.name === "AbortError") {
+
+    } catch (error) {
+
+      if (
+        error &&
+        error.name === "AbortError"
+      ) {
         return;
       }
+
     }
+
   }
-  /* Clipboard fallback */
+
   try {
-    await navigator.clipboard.writeText(CARD_URL);
-    alert("Card link copied:\n" + CARD_URL);
+
+    await navigator.clipboard.writeText(
+      CARD_URL
+    );
+
+    alert(
+      "Card link copied:\n" +
+      CARD_URL
+    );
+
+  } catch {
+
+    prompt(
+      "Copy your card link:",
+      CARD_URL
+    );
+
   }
-  catch {
-    prompt("Copy your card link:", CARD_URL);
-  }
+
 }
-/* =========================================================
-   ESC KEY
-========================================================= */
-document.addEventListener("keydown", function(e) {
-  if (e.key === "Escape") {
-    closeQR();
-    closeWhatsApp();
+
+document.addEventListener(
+  "keydown",
+  function(e) {
+
+    if (e.key === "Escape") {
+
+      closeQR();
+      closeWhatsApp();
+
+    }
+
   }
-});
-/* =========================================================
-   SERVICE WORKER
-========================================================= */
+);
+
+/* ROOT-BASED SERVICE WORKER */
+
 if ("serviceWorker" in navigator) {
-  window.addEventListener("load", function() {
-    navigator.serviceWorker.register("../sw.js", { scope: "../" }).catch(() => {});
-  });
+
+  window.addEventListener(
+    "load",
+    function() {
+
+      navigator.serviceWorker
+        .register("./SW.js", {
+          scope: "./"
+        })
+        .catch(() => {});
+
+    }
+  );
+
 }
-</script>
-</body>
-</html>
+
+</script></body>
+      </html>

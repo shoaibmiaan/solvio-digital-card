@@ -241,88 +241,85 @@ body.arabic .name { font-family: "Noto Sans Arabic", "Playfair Display", serif; 
 }
 .flip-hint svg { width: 13px; height: 13px; }
 
-.back-header { text-align: center; margin-bottom: 10px; flex-shrink: 0; }
-.logo { width: 58px; height: 58px; object-fit: contain; margin-bottom: 5px; }
+.back-header { text-align: center; margin-bottom: 8px; flex-shrink: 0; }
+.logo { width: 52px; height: 52px; object-fit: contain; margin-bottom: 4px; }
+.logo-fallback {
+  width: 52px; height: 52px; margin: 0 auto 4px;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 50%; border: 1.5px solid var(--gold);
+  background: rgba(232,196,104,.08); color: var(--gold);
+  font-family: "Playfair Display", serif; font-size: 18px; font-weight: 700;
+  letter-spacing: 1px;
+}
 
 .solvio {
   margin: 0; font-family: "Playfair Display", serif;
-  font-size: 21px; font-weight: 600; letter-spacing: 1.2px; color: #fff;
+  font-size: 20px; font-weight: 600; letter-spacing: 1.2px; color: #fff;
 }
 body.urdu .solvio { font-family: "Noto Nastaliq Urdu", "Playfair Display", serif; line-height: 1.5; }
 body.arabic .solvio { font-family: "Noto Sans Arabic", "Playfair Display", serif; line-height: 1.4; }
 
 .tagline {
-  margin: 3px 0 0; font-family: "Playfair Display", serif;
-  font-size: 11px; font-style: italic; color: var(--gold);
+  margin: 2px 0 0; font-family: "Playfair Display", serif;
+  font-size: 10.5px; font-style: italic; color: var(--gold);
 }
 body.urdu .tagline { font-family: "Noto Nastaliq Urdu", "Playfair Display", serif; line-height: 1.6; }
 body.arabic .tagline { font-family: "Noto Sans Arabic", "Playfair Display", serif; line-height: 1.5; }
 
-.badge-row {
-  display: flex; justify-content: center; gap: 6px;
-  flex-wrap: wrap; margin-bottom: 10px; flex-shrink: 0;
-}
-.badge {
-  padding: 4px 10px; border-radius: 6px;
-  border: 1px solid var(--gold-border);
-  background: rgba(232,196,104,.06);
-  color: var(--gold); font-size: 8.5px; font-weight: 700; letter-spacing: .5px;
-}
+.section { margin-bottom: 6px; flex-shrink: 0; }
+.section-title { margin-bottom: 4px; font-size: 8px; letter-spacing: 2px; font-weight: 700; color: var(--gold); text-transform: uppercase; }
 
-.section { margin-bottom: 8px; flex-shrink: 0; }
-.section-title { margin-bottom: 6px; font-size: 8.5px; letter-spacing: 2px; font-weight: 700; color: var(--gold); text-transform: uppercase; }
+.about { padding-bottom: 5px; border-bottom: 1px solid var(--border); text-align: center; }
+.about p { margin: 0; font-size: 9.5px; line-height: 1.35; color: var(--text); }
 
-.about { padding-bottom: 6px; border-bottom: 1px solid var(--border); text-align: center; }
-.about p { margin: 0; font-size: 10px; line-height: 1.4; color: var(--text); }
-
-.value-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+.value-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5px; }
 .value {
-  padding: 6px 8px; border-radius: 10px;
+  padding: 5px 7px; border-radius: 9px;
   border: 1px solid var(--border); background: rgba(255,255,255,.035);
 }
-.value strong { display: block; margin-bottom: 3px; font-size: 9.5px; color: #fff; }
-.value span { display: block; font-size: 8.5px; line-height: 1.25; color: var(--muted); }
+.value strong { display: block; margin-bottom: 2px; font-size: 9px; color: #fff; }
+.value span { display: block; font-size: 8px; line-height: 1.2; color: var(--muted); }
 
 .testimonial-section { text-align: center; }
-.testimonial-wrap { position: relative; min-height: 50px; }
+.testimonial-wrap { position: relative; min-height: 42px; }
 .testimonial {
   position: absolute; inset: 0; opacity: 0;
   transition: opacity .6s ease; pointer-events: none;
 }
 .testimonial.active { opacity: 1; pointer-events: auto; }
 .testimonial q {
-  display: block; font-size: 10.5px; line-height: 1.45;
+  display: block; font-size: 9.5px; line-height: 1.35;
   color: var(--text); font-style: italic; quotes: '"' '"' "'" "'";
 }
 .testimonial cite {
-  display: block; margin-top: 5px;
-  font-size: 9px; color: var(--muted); font-style: normal; font-weight: 600;
+  display: block; margin-top: 3px;
+  font-size: 8.5px; color: var(--muted); font-style: normal; font-weight: 600;
 }
 
 .usa {
-  display: flex; align-items: center; justify-content: center; gap: 7px;
-  padding: 6px 10px; border-radius: 999px;
+  display: flex; align-items: center; justify-content: center; gap: 6px;
+  padding: 5px 9px; border-radius: 999px;
   border: 1px solid var(--gold-border);
   background: rgba(232,196,104,.045);
-  color: var(--text); font-size: 9.5px; font-weight: 600; margin-bottom: 10px;
+  color: var(--text); font-size: 9px; font-weight: 600; margin-bottom: 6px;
 }
-.usa span:first-child { font-size: 13px; }
+.usa span:first-child { font-size: 12px; }
 
 .connect { text-align: center; }
-.social { display: flex; justify-content: center; gap: 9px; }
+.social { display: flex; justify-content: center; gap: 8px; }
 .social a {
-  width: 31px; height: 31px; display: flex;
+  width: 28px; height: 28px; display: flex;
   align-items: center; justify-content: center;
   border-radius: 50%; border: 1px solid var(--border);
   background: rgba(255,255,255,.035); color: var(--gold);
 }
-.social svg { width: 14px; height: 14px; }
+.social svg { width: 13px; height: 13px; }
 
 .consult {
   width: 100%; display: flex; align-items: center; justify-content: center;
-  padding: 9px 14px; margin-bottom: 9px; border-radius: 999px;
+  padding: 8px 12px; margin-bottom: 6px; border-radius: 999px;
   border: 1px solid var(--gold); background: rgba(232,196,104,.06);
-  color: var(--gold); font-size: 11px; font-weight: 700; flex-shrink: 0;
+  color: var(--gold); font-size: 10.5px; font-weight: 700; flex-shrink: 0;
 }
 
 .qr-button {
@@ -418,7 +415,7 @@ body.arabic .tagline { font-family: "Noto Sans Arabic", "Playfair Display", seri
 .close { background: rgba(255,255,255,.04); border: 1px solid var(--border); color: var(--text); }
 
 @media (max-height: 680px) {
-  .face { padding: 13px 16px; }
+  .face { padding: 12px 16px; }
   .profile-wrap { margin-bottom: 6px; }
   .profile { width: 70px; height: 70px; }
   .profile img { inset: 7px; width: calc(100% - 14px); height: calc(100% - 14px); }
@@ -428,14 +425,14 @@ body.arabic .tagline { font-family: "Noto Sans Arabic", "Playfair Display", seri
   .save { padding: 10px; margin-bottom: 6px; }
   .action { min-height: 48px; }
   .flip-hint { padding: 6px; }
-  .back-header { margin-bottom: 6px; }
-  .logo { width: 45px; height: 45px; }
-  .solvio { font-size: 18px; }
-  .section { margin-bottom: 7px; }
-  .value { padding: 6px 7px; }
-  .usa { margin-bottom: 7px; padding: 5px 8px; }
-  .testimonial-wrap { min-height: 56px; }
-  .badge-row { margin-bottom: 7px; }
+  .back-header { margin-bottom: 5px; }
+  .logo { width: 42px; height: 42px; }
+  .logo-fallback { width: 42px; height: 42px; font-size: 16px; }
+  .solvio { font-size: 17px; }
+  .section { margin-bottom: 5px; }
+  .value { padding: 5px 6px; }
+  .usa { margin-bottom: 5px; padding: 4px 7px; }
+  .testimonial-wrap { min-height: 38px; }
 }
 
 @media (min-width: 700px) {
@@ -506,7 +503,7 @@ body.arabic .tagline { font-family: "Noto Sans Arabic", "Playfair Display", seri
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.28-1.38a9.87 9.87 0 0 0 4.76 1.21h.01c5.46 0 9.9-4.45 9.9-9.91C21.96 6.45 17.5 2 12.04 2z"/></svg>
             <span data-en="WhatsApp" data-ur="واٹس ایپ" data-ar="واتساب">WhatsApp</span>
           </button>
-          <a class="action" href="mailto:solvioadvisors@gmail.com">
+          <a class="action" href="/cdn-cgi/l/email-protection#c8bba7a4bea1a7a9acbea1bba7babb88afa5a9a1a4e6aba7a5">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 6 12 13 2 6"/></svg>
             <span data-en="Email" data-ur="ای میل" data-ar="البريد الإلكتروني">Email</span>
           </a>
@@ -530,15 +527,10 @@ body.arabic .tagline { font-family: "Noto Sans Arabic", "Playfair Display", seri
         </button>
 
         <div class="back-header animate-in d1">
-          <img class="logo" src="solvio-logo.png" alt="Solvio Advisors Logo">
+          <img class="logo" src="solvio-logo.png" alt="Solvio Advisors Logo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+          <div class="logo-fallback" style="display:none;">SA</div>
           <h2 class="solvio">SOLVIO ADVISORS</h2>
           <p class="tagline" data-en="Clear Numbers. Better Decisions." data-ur="صاف اعداد۔ بہتر فیصلے۔" data-ar="أرقام واضحة. قرارات أفضل.">Clear Numbers. Better Decisions.</p>
-        </div>
-
-        <div class="badge-row animate-in d2">
-          <span class="badge">ACCA Member</span>
-          <span class="badge">CFA Level II</span>
-          <span class="badge">Tax Bar Association</span>
         </div>
 
         <div class="section about animate-in d2">
@@ -620,7 +612,6 @@ body.arabic .tagline { font-family: "Noto Sans Arabic", "Playfair Display", seri
     </div>
   </div>
 </div>
-
 <!-- WhatsApp Modal -->
 <div class="wa-modal" id="waModal" role="dialog" aria-modal="true" aria-label="Choose WhatsApp number" onclick="closeWhatsApp(event)">
   <div class="wa-box" onclick="event.stopPropagation()">
@@ -677,12 +668,11 @@ body.arabic .tagline { font-family: "Noto Sans Arabic", "Playfair Display", seri
   </div>
 </div>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 // ================= CONFIG =================
-const CALENDLY_USER = 'solvioadvisors'; // <-- REPLACE WITH YOUR CALENDLY USERNAME
-const FORMSPREE_ID  = 'https://formspree.io/f/xaeyqrvd';    // <-- REPLACE WITH YOUR FORMSPREE FORM ID
+const CALENDLY_USER = 'solvioadvisors';
+const FORMSPREE_ID  = 'https://formspree.io/f/xaeyqrvd';
 
-// Preserve UTM params for QR and sharing
 const urlParams = new URLSearchParams(window.location.search);
 const utmSource = urlParams.get('utm_source') || '';
 const utmMedium = urlParams.get('utm_medium') || '';
@@ -717,12 +707,10 @@ function flipBack(e) {
   inner.classList.remove('flipped');
 }
 
-// Auto-flip via ?view=company
 if (urlParams.get('view') === 'company') {
   setTimeout(() => inner.classList.add('flipped'), 600);
 }
 
-// 3D Tilt (desktop hover)
 let tiltActive = false;
 if (!window.matchMedia('(pointer: coarse)').matches) {
   card.addEventListener('mousemove', e => {
@@ -742,7 +730,6 @@ if (!window.matchMedia('(pointer: coarse)').matches) {
   });
 }
 
-// Mobile gyro parallax (subtle)
 if (window.DeviceOrientationEvent && window.matchMedia('(pointer: coarse)').matches) {
   window.addEventListener('deviceorientation', e => {
     if (tiltActive) return;

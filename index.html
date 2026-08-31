@@ -13,7 +13,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet"><script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.4/build/qrcode.min.js"></script><style>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet"><style>
 :root {
   --bg: #080e18;
   --card: #101827;
@@ -187,14 +187,14 @@ a {
 .profile-wrap {
   display: flex;
   justify-content: center;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
   flex-shrink: 0;
 }
 
 .profile {
   position: relative;
-  width: clamp(88px, 21vw, 100px);
-  height: clamp(88px, 21vw, 100px);
+  width: clamp(120px, 32vw, 148px);
+  height: clamp(120px, 32vw, 148px);
 }
 
 .profile-ring {
@@ -651,14 +651,8 @@ a {
   border: 1px solid var(--gold-border);
   background: rgba(232,196,104,.06);
   color: var(--white);
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 700;
-}
-
-.wa-option svg {
-  width: 18px;
-  height: 18px;
-  color: var(--gold);
 }
 
 .wa-option small {
@@ -688,11 +682,16 @@ a {
   padding: 10px;
   border-radius: 13px;
   background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-#qrCanvas {
+#qrImage {
   width: 100%;
   height: 100%;
+  border-radius: 6px;
+  display: block;
 }
 
 .short-link {
@@ -740,12 +739,12 @@ a {
   }
 
   .profile-wrap {
-    margin-bottom: 6px;
+    margin-bottom: 8px;
   }
 
   .profile {
-    width: 70px;
-    height: 70px;
+    width: 96px;
+    height: 96px;
   }
 
   .profile img {
@@ -982,19 +981,13 @@ Select the WhatsApp number you want to message.
 href="https://wa.me/12282253039"
 target="_blank"
 rel="noopener">
-
-<svg viewBox="0 0 24 24" fill="currentColor">
-<path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.28-1.38a9.87 9.87 0 0 0 4.76 1.21h.01c5.46 0 9.9-4.45 9.9-9.91C21.96 6.45 17.5 2 12.04 2z"/>
-</svg><span>
+<span>
 &#127482;&#127480; +1 228 225 3039
 </span></a><a class="wa-option"
 href="https://wa.me/923348955557"
 target="_blank"
 rel="noopener">
-
-<svg viewBox="0 0 24 24" fill="currentColor">
-<path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.28-1.38a9.87 9.87 0 0 0 4.76-9.91C21.96 6.45 17.5 2 12.04 2z"/>
-</svg><span>
+<span>
 &#127477;&#127472; +92 334 8955557
 </span></a></div><button class="wa-close"
 type="button"
@@ -1011,10 +1004,7 @@ Scan or Share
 </h3><p>
 Scan the QR code or use the simple link below.
 </p><div class="qr-wrap">
-<canvas id="qrCanvas"
-        width="180"
-        height="180">
-</canvas>
+<img id="qrImage" alt="QR Code linking to Solvio Advisors">
 </div><a class="short-link"
 href="https://solvioadvisors.com/"
 target="_blank">
@@ -1136,83 +1126,14 @@ function closeWhatsApp(e) {
 
 function generateQR() {
 
-  const canvas =
-    document.getElementById("qrCanvas");
+  const img = document.getElementById("qrImage");
 
-  const ctx =
-    canvas.getContext("2d");
+  const encoded = encodeURIComponent(CARD_URL);
 
-  ctx.clearRect(
-    0,
-    0,
-    canvas.width,
-    canvas.height
-  );
+  img.src =
+    "https://api.qrserver.com/v1/create-qr-code/?size=360x360&data=" +
+    encoded;
 
-  if (
-    typeof QRCode !== "undefined" &&
-    QRCode.toCanvas
-  ) {
-
-    QRCode.toCanvas(
-      canvas,
-      CARD_URL,
-      {
-        width: 180,
-        margin: 2,
-        color: {
-          dark: "#0f1726",
-          light: "#ffffff"
-        },
-        errorCorrectionLevel: "M"
-      },
-      function(error) {
-
-        if (error) {
-          drawQRUnavailable(ctx);
-        }
-
-      }
-    );
-
-    return;
-  }
-
-  drawQRUnavailable(ctx);
-}
-
-function drawQRUnavailable(ctx) {
-
-  const size = 180;
-
-  ctx.fillStyle = "#ffffff";
-  ctx.fillRect(0, 0, size, size);
-
-  ctx.fillStyle = "#0f1726";
-
-  ctx.font = "bold 14px Arial";
-  ctx.textAlign = "center";
-
-  ctx.fillText(
-    "QR Code",
-    size / 2,
-    78
-  );
-
-  ctx.fillText(
-    "Unavailable",
-    size / 2,
-    98
-  );
-
-  ctx.font = "11px Arial";
-  ctx.fillStyle = "#555";
-
-  ctx.fillText(
-    "Please use the link below",
-    size / 2,
-    122
-  );
 }
 
 function openQR(e) {
@@ -1246,8 +1167,8 @@ function closeQR(e) {
 
 async function shareCard() {
 
-  const canvas =
-    document.getElementById("qrCanvas");
+  const img =
+    document.getElementById("qrImage");
 
   const shareText =
 `Muhammad Shoaib Ahmed, ACCA
@@ -1264,13 +1185,7 @@ ${CARD_URL}`;
     try {
 
       const blob =
-        await new Promise(
-          resolve =>
-            canvas.toBlob(
-              resolve,
-              "image/png"
-            )
-        );
+        await fetch(img.src).then(r => r.blob());
 
       const file =
         new File(

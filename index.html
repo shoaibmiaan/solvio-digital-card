@@ -472,7 +472,7 @@ body.arabic .tagline { font-family: "Noto Sans Arabic", "Playfair Display", seri
           <h1 class="name" data-en="Muhammad Shoaib Ahmed" data-ur="محمد شعیب احمد" data-ar="محمد شعيب أحمد">Muhammad Shoaib Ahmed</h1>
           <div class="credential">ACCA MEMBER</div>
           <p class="title" data-en="Founder, Solvio Advisors" data-ur="سولوایو ایڈوائزرز کے بانی" data-ar="مؤسس، سولفيو أدفايزورز">Founder, Solvio Advisors</p>
-          <p class="company" data-en="Advocate · Tax & Financial Consultant" data-ur="وکیل · ٹیکس اور مالیاتی مشیر" data-ar="محامٍ · مستشار ضرائب ومالية">Advocate · Tax &amp; Financial Consultant</p>
+          <p class="company" data-en="Advocate · Tax & Financial Consultant" data-ur="وکیل · ٹیکس اور مالیاتی مشیر" data-ar="محامٍ · مستشار ضرائب ومالية">Advocate &middot; Tax &amp; Financial Consultant</p>
         </div>
 
         <div class="credentials animate-in d4">
@@ -503,7 +503,7 @@ body.arabic .tagline { font-family: "Noto Sans Arabic", "Playfair Display", seri
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.28-1.38a9.87 9.87 0 0 0 4.76 1.21h.01c5.46 0 9.9-4.45 9.9-9.91C21.96 6.45 17.5 2 12.04 2z"/></svg>
             <span data-en="WhatsApp" data-ur="واٹس ایپ" data-ar="واتساب">WhatsApp</span>
           </button>
-          <a class="action" href="/cdn-cgi/l/email-protection#c8bba7a4bea1a7a9acbea1bba7babb88afa5a9a1a4e6aba7a5">
+          <a class="action" href="/cdn-cgi/l/email-protection#03706c6f756a6c6267756a706c717043646e626a6f2d606c6e">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 6 12 13 2 6"/></svg>
             <span data-en="Email" data-ur="ای میل" data-ar="البريد الإلكتروني">Email</span>
           </a>
@@ -806,31 +806,33 @@ setInterval(() => {
 // ================= LEAD FORM =================
 async function submitLead(e) {
   e.preventDefault();
-  const btn = e.target.querySelector('button[type="submit"]');
+  const form = e.target;
+  const btn = form.querySelector('button[type="submit"]');
   const originalText = btn.getAttribute('data-en') || 'Send Message';
   const sendingText = currentLang === 'en' ? 'Sending...' : currentLang === 'ur' ? 'بھیج رہا ہے...' : 'جاري الإرسال...';
-  const sentText = currentLang === 'en' ? 'Sent!' : currentLang === 'ur' ? 'بھیج دیا گیا!' : 'تم الإرسال!';
+  const sentText = currentLang === 'en' ? '✓ Message Sent!' : currentLang === 'ur' ? '✓ بھیج دیا گیا!' : '✓ تم الإرسال!';
   const failedText = currentLang === 'en' ? 'Failed. Try email.' : currentLang === 'ur' ? 'ناکام۔ ای میل کریں۔' : 'فشل. جرب البريد الإلكتروني.';
   btn.textContent = sendingText;
   btn.disabled = true;
-
-  if (FORMSPREE_ID === 'https://formspree.io/f/xaeyqrvd') {
-    alert(currentLang === 'ar' ? 'لم يتم تكوين Formspree بعد. يرجى إرسال بريد إلكتروني إلى solvioadvisors@gmail.com' : 'Formspree not configured yet. Please email solvioadvisors@gmail.com');
-    btn.textContent = originalText;
-    btn.disabled = false;
-    return;
-  }
 
   try {
     const res = await fetch('https://formspree.io/f/' + FORMSPREE_ID, {
       method: 'POST',
       headers: { 'Accept': 'application/json' },
-      body: new FormData(e.target)
+      body: new FormData(form)
     });
     if (res.ok) {
       btn.textContent = sentText;
-      e.target.reset();
-      setTimeout(() => { btn.textContent = originalText; btn.disabled = false; }, 2500);
+      btn.style.background = 'linear-gradient(135deg, #4ade80, #22c55e)';
+      btn.style.color = '#0a1a0f';
+      setTimeout(() => {
+        form.reset();
+        closeLeadModal();
+        btn.textContent = originalText;
+        btn.disabled = false;
+        btn.style.background = '';
+        btn.style.color = '';
+      }, 1800);
     } else {
       throw new Error('Failed');
     }

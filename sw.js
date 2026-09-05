@@ -1,10 +1,10 @@
-const CACHE_NAME = "solvio-card-v4";
+const CACHE_NAME = "solvio-card-v5";
 
 
 const FILES_TO_CACHE = [
 "./",
 "./index.html",
-"./profile.JPG",
+"./profile.jpg",
 "./solvio-logo.png"
 ];
 

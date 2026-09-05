@@ -4,7 +4,7 @@ const CACHE_NAME = "solvio-card-v5";
 const FILES_TO_CACHE = [
 "./",
 "./index.html",
-"./profile.jpg",
+"./profile.JPG",
 "./solvio-logo.png"
 ];
 
@@ -68,15 +68,15 @@ caches.match(request)
         if (response && response.ok) {
 
           const responseClone =
-            response.clone();
+          response.clone();
 
           caches.open(CACHE_NAME)
-            .then(cache => {
-              cache.put(
-                request,
-                responseClone
-              );
-            });
+          .then(cache => {
+            cache.put(
+              request,
+              responseClone
+            );
+          });
         }
 
         return response;
@@ -106,4 +106,3 @@ caches.match(request)
 
 
 });
-

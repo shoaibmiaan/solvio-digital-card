@@ -437,6 +437,86 @@ body.arabic .tagline { font-family: "Noto Sans Arabic", "Playfair Display", seri
 @media (min-width: 700px) {
   .flipcard { width: 390px; height: 680px; }
 }
+
+/* ============ BUSINESS CHECK-UP ============ */
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+}
+.checkup-teaser {
+  text-align: center; padding: 18px 16px;
+  background: linear-gradient(160deg, rgba(232,196,104,.08), rgba(232,196,104,.02));
+  border: 1px solid var(--gold-border); border-radius: 16px;
+}
+.checkup-icon { font-size: 24px; margin-bottom: 6px; }
+.checkup-sub { margin: 0 0 4px; font-size: 12.5px; font-weight: 700; color: var(--white); }
+.checkup-desc { margin: 0 0 14px; font-size: 10.5px; color: var(--muted); line-height: 1.4; }
+.checkup-start {
+  width: 100%; padding: 13px; border-radius: 12px;
+  background: linear-gradient(135deg, var(--gold-light), var(--gold-dark));
+  color: #171207; font-size: 12.5px; font-weight: 700;
+}
+
+.checkup-modal { position: fixed; inset: 0; z-index: 1000; display: none; background: var(--bg); }
+.checkup-modal.active { display: flex; flex-direction: column; }
+.checkup-panel {
+  width: 100%; height: 100%; overflow-y: auto;
+  padding: max(18px, env(safe-area-inset-top)) 20px max(18px, env(safe-area-inset-bottom));
+  display: flex; flex-direction: column;
+}
+.checkup-top { display: flex; align-items: center; gap: 12px; margin-bottom: 22px; flex-shrink: 0; }
+.checkup-progress-track { flex: 1; height: 5px; border-radius: 3px; background: rgba(255,255,255,.08); overflow: hidden; }
+.checkup-progress-fill { height: 100%; border-radius: 3px; background: linear-gradient(90deg, var(--gold-dark), var(--gold-light)); transition: width .35s ease; }
+.checkup-exit {
+  width: 30px; height: 30px; border-radius: 50%; flex-shrink: 0;
+  background: rgba(255,255,255,.05); border: 1px solid var(--border);
+  color: var(--text); font-size: 15px; display: flex; align-items: center; justify-content: center;
+}
+.checkup-body { flex: 1; display: flex; flex-direction: column; max-width: 420px; margin: 0 auto; width: 100%; }
+.checkup-step-label { font-size: 10.5px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
+.checkup-question { font-family: "Playfair Display", serif; font-size: 20px; line-height: 1.35; margin: 0 0 22px; color: var(--white); }
+.checkup-options { display: grid; gap: 10px; }
+.checkup-option {
+  width: 100%; text-align: left; padding: 15px 16px; border-radius: 13px;
+  background: rgba(255,255,255,.03); border: 1px solid var(--border);
+  color: var(--white); font-size: 13px; font-weight: 600; line-height: 1.3;
+  transition: background .2s ease, border-color .2s ease;
+}
+.checkup-option:hover, .checkup-option:focus-visible { border-color: var(--gold-border); background: rgba(232,196,104,.07); }
+.checkup-option.selected { border-color: var(--gold); background: rgba(232,196,104,.12); }
+body[dir="rtl"] .checkup-option { text-align: right; }
+.checkup-explain { margin-top: 18px; padding: 14px 15px; border-radius: 13px; background: rgba(232,196,104,.06); border: 1px solid var(--gold-border); }
+.checkup-explain h4 { margin: 0 0 5px; font-size: 11.5px; color: var(--gold); }
+.checkup-explain p { margin: 0; font-size: 11.5px; color: var(--text); line-height: 1.45; }
+.checkup-nav { margin-top: auto; padding-top: 20px; display: flex; gap: 10px; flex-shrink: 0; }
+.checkup-back { padding: 13px 18px; border-radius: 12px; background: rgba(255,255,255,.04); border: 1px solid var(--border); color: var(--text); font-size: 12px; font-weight: 700; }
+.checkup-continue { flex: 1; padding: 13px 18px; border-radius: 12px; background: linear-gradient(135deg, var(--gold-light), var(--gold-dark)); color: #171207; font-size: 12.5px; font-weight: 700; }
+.checkup-continue:disabled { opacity: .4; pointer-events: none; }
+.checkup-result-score { text-align: center; margin-bottom: 4px; }
+.checkup-score-num { font-family: "Playfair Display", serif; font-size: 46px; color: var(--gold); line-height: 1; }
+.checkup-score-max { font-size: 14px; color: var(--muted); }
+.checkup-score-label { text-align: center; font-size: 14px; font-weight: 700; margin: 4px 0 20px; }
+.checkup-score-label.strong { color: var(--online); }
+.checkup-score-label.attention { color: var(--gold); }
+.checkup-score-label.risk { color: #f0a860; }
+.checkup-score-label.urgent { color: #f16565; }
+.checkup-result-msg { font-size: 12px; color: var(--text); line-height: 1.5; text-align: center; margin-bottom: 22px; }
+.checkup-result-block { margin-bottom: 18px; }
+.checkup-result-block h4 { font-size: 11px; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); margin: 0 0 8px; }
+.checkup-strength, .checkup-gap { display: flex; align-items: flex-start; gap: 8px; font-size: 12px; padding: 9px 0; border-bottom: 1px solid var(--border); }
+.checkup-strength:last-child, .checkup-gap:last-child { border-bottom: none; }
+.checkup-steps-list { margin: 0; padding-left: 18px; font-size: 11.5px; color: var(--text); line-height: 1.7; }
+body[dir="rtl"] .checkup-steps-list { padding-left: 0; padding-right: 18px; }
+.checkup-actions { display: grid; gap: 9px; margin: 8px 0 4px; }
+.checkup-actions button, .checkup-actions a { padding: 13px; border-radius: 12px; font-size: 12.5px; font-weight: 700; text-align: center; display: block; }
+.checkup-cta-book { background: linear-gradient(135deg, var(--gold-light), var(--gold-dark)); color: #171207; }
+.checkup-cta-wa { background: rgba(255,255,255,.04); border: 1px solid var(--border); color: var(--white); }
+.checkup-restart { background: transparent; color: var(--muted); font-size: 11px; text-decoration: underline; padding: 6px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .checkup-progress-fill, .checkup-option { transition: none; }
+}
+
 </style>
 </head>
 <body>
@@ -566,6 +646,16 @@ body.arabic .tagline { font-family: "Noto Sans Arabic", "Playfair Display", seri
           </div>
         </div>
 
+        <div class="section checkup-teaser animate-in d4">
+          <div class="checkup-icon" aria-hidden="true">🩺</div>
+          <div class="section-title" data-en="Business Check-up" data-ur="بزنس چیک اپ" data-ar="فحص العمل">Business Check-up</div>
+          <p class="checkup-sub" data-en="How healthy are your business finances?" data-ur="آپ کے کاروبار کی مالی صحت کیسی ہے؟" data-ar="ما مدى صحة أوضاعك المالية؟">How healthy are your business finances?</p>
+          <p class="checkup-desc" data-en="Take a 60-second check-up and discover where your business may need attention." data-ur="60 سیکنڈ کا چیک اپ کریں اور جانیں کہ آپ کے کاروبار کو کہاں توجہ کی ضرورت ہے۔" data-ar="أجرِ فحصًا مدته 60 ثانية واكتشف أين قد يحتاج عملك إلى الاهتمام.">Take a 60-second check-up and discover where your business may need attention.</p>
+          <button class="checkup-start" type="button" onclick="openCheckup(event)" aria-haspopup="dialog">
+            <span data-en="Start Check-up" data-ur="چیک اپ شروع کریں" data-ar="ابدأ الفحص">Start Check-up</span>
+          </button>
+        </div>
+
         <div class="section testimonial-section animate-in d4">
           <div class="section-title" data-en="Client Words" data-ur="کلائنٹس کے الفاظ" data-ar="آراء العملاء">Client Words</div>
           <div class="testimonial-wrap" id="testimonialWrap"></div>
@@ -664,6 +754,18 @@ body.arabic .tagline { font-family: "Noto Sans Arabic", "Playfair Display", seri
   <div class="calendly-box" onclick="event.stopPropagation()">
     <button class="calendly-close" onclick="closeCalendly()" aria-label="Close booking">×</button>
     <iframe id="calendlyFrame" src="" title="Book a consultation"></iframe>
+  </div>
+</div>
+
+<!-- Business Check-up -->
+<div class="checkup-modal" id="checkupModal" role="dialog" aria-modal="true" aria-label="Business Check-up">
+  <div class="checkup-panel">
+    <div class="checkup-top">
+      <div class="checkup-progress-track"><div class="checkup-progress-fill" id="checkupProgressFill" style="width:0%"></div></div>
+      <button class="checkup-exit" type="button" onclick="closeCheckup()" aria-label="Close Business Check-up">×</button>
+    </div>
+    <div class="sr-only" aria-live="polite" id="checkupAnnounce"></div>
+    <div class="checkup-body" id="checkupBody"></div>
   </div>
 </div>
 
@@ -951,15 +1053,271 @@ async function shareCard() {
   catch { prompt("Copy your card link:", CARD_URL); }
 }
 
+// ================= BUSINESS CHECK-UP =================
+const CHECKUP_QUESTIONS = [
+  {
+    id: 'books_close', category: 'Bookkeeping Discipline', max: 15,
+    question: "When did you last close your books?",
+    options: [
+      { label: "This month", score: 15 },
+      { label: "1–2 months ago", score: 12 },
+      { label: "3–6 months ago", score: 7 },
+      { label: "More than 6 months ago", score: 3 },
+      { label: "I don't know", score: 0 }
+    ],
+    why: "Closing your books regularly gives you a more reliable picture of revenue, expenses, profit and financial position. Without regular closing, important decisions may be based on incomplete numbers.",
+    gap: "Books haven't been closed recently"
+  },
+  {
+    id: 'accounting_profit', category: 'Financial Visibility', max: 15,
+    question: "When was the last time you reviewed your actual accounting profit?",
+    options: [
+      { label: "This month", score: 15 },
+      { label: "Last quarter", score: 11 },
+      { label: "More than 3 months ago", score: 6 },
+      { label: "Only at tax time", score: 3 },
+      { label: "I don't know", score: 0 }
+    ],
+    why: "Your accounting profit reflects revenue and expenses recorded over a period — it's different from your bank balance. Reviewing it regularly helps you catch problems before they grow.",
+    gap: "Accounting profit isn't reviewed regularly"
+  },
+  {
+    id: 'cash_vs_profit', category: 'Cash-Flow Awareness', max: 12,
+    question: "Do you know the difference between cash profit and accounting profit?",
+    options: [
+      { label: "Yes, clearly", score: 12 },
+      { label: "Somewhat", score: 8 },
+      { label: "Not really", score: 4 },
+      { label: "No", score: 0 }
+    ],
+    why: "Cash profit is the money moving through your bank account. Accounting profit includes income earned and expenses incurred, even before cash changes hands. Confusing the two can lead to decisions based on the wrong number.",
+    gap: "Cash vs. accounting profit isn't clearly understood"
+  },
+  {
+    id: 'bank_reconciliation', category: 'Reconciliation', max: 15,
+    question: "Are your business bank accounts regularly reconciled with your accounting records?",
+    options: [
+      { label: "Yes, monthly", score: 15 },
+      { label: "Occasionally", score: 11 },
+      { label: "Rarely", score: 6 },
+      { label: "Never", score: 2 },
+      { label: "I don't know", score: 0 }
+    ],
+    why: "Reconciling your bank accounts against your books catches errors, missing transactions and even fraud early — before they distort your numbers.",
+    gap: "Bank accounts aren't reconciled consistently"
+  },
+  {
+    id: 'receivables', category: 'Receivables Control', max: 14,
+    question: "Do you currently know exactly how much customers owe your business?",
+    options: [
+      { label: "Yes", score: 14 },
+      { label: "Approximately", score: 9 },
+      { label: "Not really", score: 4 },
+      { label: "I don't know", score: 0 }
+    ],
+    why: "Knowing exactly what customers owe you protects your cash flow. Money sitting in receivables is money you can't use until it's collected.",
+    gap: "Limited visibility over receivables"
+  },
+  {
+    id: 'business_performance', category: 'Reporting Discipline', max: 15,
+    question: "Do you regularly review your Profit & Loss and Balance Sheet?",
+    options: [
+      { label: "Monthly", score: 15 },
+      { label: "Quarterly", score: 11 },
+      { label: "Occasionally", score: 7 },
+      { label: "Only when needed", score: 3 },
+      { label: "Never", score: 0 }
+    ],
+    why: "Your Profit & Loss and Balance Sheet tell the real story of how your business is performing and what it owns and owes. Reviewing them regularly turns numbers into decisions.",
+    gap: "Financial statements aren't reviewed regularly"
+  },
+  {
+    id: 'tax_readiness', category: 'Tax Readiness', max: 14,
+    question: "If your tax filing were due soon, how confident are you that your books and records are ready?",
+    options: [
+      { label: "Completely ready", score: 14 },
+      { label: "Mostly ready", score: 10 },
+      { label: "Some work required", score: 6 },
+      { label: "Significant cleanup required", score: 3 },
+      { label: "I have no idea", score: 0 }
+    ],
+    why: "Tax readiness isn't just about the filing deadline — it reflects how organized your books have been all year. Scrambling at tax time usually means missed deductions or costly errors.",
+    gap: "Books aren't tax-ready"
+  }
+];
+
+let checkupState = { index: 0, answers: [], selectedThisStep: null, step: 'question' };
+
+function openCheckup(e) {
+  if (e) e.stopPropagation();
+  checkupState = {
+    index: 0,
+    answers: new Array(CHECKUP_QUESTIONS.length).fill(null),
+    selectedThisStep: null,
+    step: 'question'
+  };
+  document.getElementById('checkupModal').classList.add('active');
+  document.body.style.overflow = 'hidden';
+  renderCheckup();
+}
+function closeCheckup(e) {
+  const modal = document.getElementById('checkupModal');
+  if (e && e.target !== modal) return;
+  modal.classList.remove('active');
+  document.body.style.overflow = '';
+}
+function checkupSelect(optionIdx) {
+  const q = CHECKUP_QUESTIONS[checkupState.index];
+  const opt = q.options[optionIdx];
+  checkupState.answers[checkupState.index] = {
+    optionIdx, score: opt.score, category: q.category, max: q.max, gap: q.gap
+  };
+  checkupState.selectedThisStep = optionIdx;
+  renderCheckup();
+}
+function checkupContinue() {
+  if (checkupState.selectedThisStep === null) return;
+  if (checkupState.index < CHECKUP_QUESTIONS.length - 1) {
+    checkupState.index++;
+    checkupState.selectedThisStep = checkupState.answers[checkupState.index] ? checkupState.answers[checkupState.index].optionIdx : null;
+  } else {
+    checkupState.step = 'result';
+  }
+  renderCheckup();
+}
+function checkupBack() {
+  if (checkupState.step === 'result') {
+    checkupState.step = 'question';
+    checkupState.index = CHECKUP_QUESTIONS.length - 1;
+  } else if (checkupState.index > 0) {
+    checkupState.index--;
+  } else {
+    return;
+  }
+  const existing = checkupState.answers[checkupState.index];
+  checkupState.selectedThisStep = existing ? existing.optionIdx : null;
+  renderCheckup();
+}
+function checkupRestart() { openCheckup(); }
+
+function checkupComputeResult() {
+  let total = 0, max = 0;
+  const areas = checkupState.answers.map(a => {
+    total += a.score; max += a.max;
+    return { category: a.category, gap: a.gap, pct: a.score / a.max };
+  });
+  areas.sort((a, b) => b.pct - a.pct);
+  const strongest = areas[0];
+  const weakest = areas.filter(a => a.pct < 0.7).sort((a, b) => a.pct - b.pct).slice(0, 3);
+  let level, label, msg;
+  if (total >= 80) {
+    level = 'strong'; label = 'Strong Financial Control';
+    msg = "Your business appears to have good financial discipline. Keep your reporting and reconciliations consistent.";
+  } else if (total >= 60) {
+    level = 'attention'; label = 'Needs Attention';
+    msg = "Your financial foundation looks reasonable, but there are areas that could affect the accuracy of your business decisions.";
+  } else if (total >= 40) {
+    level = 'risk'; label = 'At Risk';
+    msg = "Your business may have gaps in bookkeeping, reporting or financial visibility that deserve attention.";
+  } else {
+    level = 'urgent'; label = 'Immediate Attention Recommended';
+    msg = "You may not have a reliable picture of your business finances right now. Cleaning up your records should be a priority.";
+  }
+  return { total, max, strongest, weakest, level, label, msg };
+}
+
+function checkupEsc(s) {
+  return String(s).replace(/[&<>"']/g, c => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[c]));
+}
+
+function renderCheckup() {
+  const body = document.getElementById('checkupBody');
+  const fill = document.getElementById('checkupProgressFill');
+  const announce = document.getElementById('checkupAnnounce');
+  const total = CHECKUP_QUESTIONS.length;
+
+  if (checkupState.step === 'question') {
+    const q = CHECKUP_QUESTIONS[checkupState.index];
+    const selected = checkupState.selectedThisStep;
+    fill.style.width = Math.round((checkupState.index / total) * 100) + '%';
+    announce.textContent = 'Question ' + (checkupState.index + 1) + ' of ' + total;
+
+    const optionsHtml = q.options.map((opt, i) =>
+      '<button class="checkup-option' + (selected === i ? ' selected' : '') + '" type="button" onclick="checkupSelect(' + i + ')" aria-pressed="' + (selected === i) + '">' + checkupEsc(opt.label) + '</button>'
+    ).join('');
+
+    const explainHtml = (selected !== null && selected !== undefined)
+      ? '<div class="checkup-explain"><h4>Why this matters</h4><p>' + checkupEsc(q.why) + '</p></div>'
+      : '';
+
+    const backBtn = checkupState.index > 0
+      ? '<button class="checkup-back" type="button" onclick="checkupBack()">Back</button>'
+      : '';
+
+    body.innerHTML =
+      '<div class="checkup-step-label">Question ' + (checkupState.index + 1) + ' of ' + total + '</div>' +
+      '<h2 class="checkup-question" tabindex="-1">' + checkupEsc(q.question) + '</h2>' +
+      '<div class="checkup-options" role="group" aria-label="Answer options">' + optionsHtml + '</div>' +
+      explainHtml +
+      '<div class="checkup-nav">' + backBtn +
+        '<button class="checkup-continue" type="button" onclick="checkupContinue()"' + (selected === null || selected === undefined ? ' disabled' : '') + '>' +
+          (checkupState.index === total - 1 ? 'See My Score' : 'Continue') +
+        '</button>' +
+      '</div>';
+
+    const heading = body.querySelector('.checkup-question');
+    if (heading) heading.focus();
+  } else {
+    fill.style.width = '100%';
+    announce.textContent = 'Your Business Check-up results are ready';
+    const r = checkupComputeResult();
+
+    const gapsHtml = r.weakest.length
+      ? r.weakest.map(a => '<div class="checkup-gap">⚠️&nbsp; ' + checkupEsc(a.gap) + '</div>').join('')
+      : '<div class="checkup-gap">✓&nbsp; No major gaps identified — keep it up.</div>';
+
+    body.innerHTML =
+      '<div class="checkup-result-score" tabindex="-1"><span class="checkup-score-num">' + r.total + '</span><span class="checkup-score-max">/' + r.max + '</span></div>' +
+      '<div class="checkup-score-label ' + r.level + '">' + r.label + '</div>' +
+      '<p class="checkup-result-msg">' + r.msg + '</p>' +
+      '<div class="checkup-result-block"><h4>Your strongest area</h4><div class="checkup-strength">✓&nbsp; ' + checkupEsc(r.strongest.category) + '</div></div>' +
+      '<div class="checkup-result-block"><h4>Areas to review</h4>' + gapsHtml + '</div>' +
+      '<div class="checkup-result-block"><h4>What should you do next?</h4>' +
+        '<ol class="checkup-steps-list">' +
+          '<li>Close your books regularly.</li>' +
+          '<li>Reconcile bank and credit-card accounts.</li>' +
+          '<li>Review your P&amp;L and Balance Sheet.</li>' +
+          '<li>Monitor outstanding receivables.</li>' +
+          '<li>Keep records organized for tax/compliance purposes.</li>' +
+        '</ol>' +
+      '</div>' +
+      '<div class="checkup-result-block">' +
+        '<h4>Want to improve your score?</h4>' +
+        '<p class="checkup-result-msg" style="margin-bottom:14px;">Solvio Advisors can help you clean up your books, improve financial reporting and get your records ready for better business decisions.</p>' +
+        '<div class="checkup-actions">' +
+          '<button class="checkup-cta-book" type="button" onclick="closeCheckup(); openCalendly();">Book a Free Consultation</button>' +
+          '<button class="checkup-cta-wa" type="button" onclick="closeCheckup(); openWhatsApp();">WhatsApp Solvio</button>' +
+        '</div>' +
+      '</div>' +
+      '<div class="checkup-nav" style="margin-top:4px;">' +
+        '<button class="checkup-back" type="button" onclick="checkupBack()">Back</button>' +
+        '<button class="checkup-restart" type="button" onclick="checkupRestart()" style="flex:1;">Retake Check-up</button>' +
+      '</div>';
+
+    const scoreEl = body.querySelector('.checkup-result-score');
+    if (scoreEl) scoreEl.focus();
+  }
+}
+
 // ================= GLOBAL KEYS =================
 document.addEventListener("keydown", function(e) {
-  if (e.key === "Escape") { closeQR(); closeWhatsApp(); closeCalendly(); closeLeadModal(); }
+  if (e.key === "Escape") { closeQR(); closeWhatsApp(); closeCalendly(); closeLeadModal(); closeCheckup(); }
 });
 
 // ================= SERVICE WORKER =================
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", function() {
-    navigator.serviceWorker.register("./SW.js", { scope: "./" }).catch(() => {});
+    navigator.serviceWorker.register("./sw.js", { scope: "./" }).catch(() => {});
   });
 }
 </script>
